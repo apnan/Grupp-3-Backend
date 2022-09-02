@@ -5,16 +5,18 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// const  usersRoutes= require('./routes/userRoutes')
 
 const PORT = process.env.PORT || 3000;
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static('public'));
+// app.use('/api/users',usersRoutes)
 app.use(cors());
 app.use(bodyParser.json());
 
 const usersRoute = require('./routes/users');
-app.use('/users', usersRoute);
+// app.use('/users', usersRoutes);
 
 app.get('/', (req, res) => {
   headers = { 'cache-control': 'no-cache' };
