@@ -1,7 +1,16 @@
+const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
 
+
 const UserSchema = mongoose.Schema({
-  name: {
+  userName: {
+    type: String
+  },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -13,10 +22,6 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  phone: {
-    type: String,
-    required: false,
-  },
 });
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('users', UserSchema); //changed Users to users

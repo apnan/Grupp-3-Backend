@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
+//Get all users
 router.get('/', async (req, res) => {
   try {
     res.json(await User.find());
@@ -10,20 +11,36 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+
+
 router.get('/:userId', async (req, res) => {
+  console.log(req.params.userId)
   try {
-    res.json(await User.findById(req.params.userId));
+    res.json(await User.find(
+        {
+          name:  req.params.userId
+        }
+      )
+    )
+     
   } catch (error) {
     res.json({ message: error });
   }
 });
 
+
+
+
+
+//post to create user in db
+
 router.post('/', async (req, res) => {
+  console.log("Connected");
   const user = new User({
     name: req.body.name,
     password: req.body.password,
     email: req.body.email,
-    phone: req.body.phone,
   });
   try {
     const savedUser = await user.save();
@@ -32,6 +49,11 @@ router.post('/', async (req, res) => {
     res.json({ message: error });
   }
 });
+
+
+
+
+
 
 // Delete post
 router.delete('/:userId', async (req, res) => {
@@ -53,7 +75,6 @@ router.patch('/:userId', async (req, res) => {
           name: req.body.name,
           password: req.body.password,
           email: req.body.email,
-          phone: req.body.phone,
         },
       }
     );

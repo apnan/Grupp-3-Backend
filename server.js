@@ -5,18 +5,26 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const  usersRoutes= require('./routes/userRoutes')
+// const dotenv  = require('dotenv')
+//  const  usersRoutes= require('./routes/userRoutes')
 
 const PORT = process.env.PORT || 3000;
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(express.static('public'));
-// app.use('/api/users',usersRoutes)
 app.use(cors());
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+app.use(express.json());
 
-const usersRoute = require('./routes/users');
-// app.use('/users', usersRoutes);
+const usersRoute = require("./routes/users");
+const loginRoute = require("./routes/login")
+const signinRoute = require("./routes/signin");
+
+app.use(express.static('public'));
+app.use('/api/users', usersRoute)
+app.use("/api/login", loginRoute);
+app.use("/api/signin",signinRoute)
+
+
 
 app.get('/', (req, res) => {
   headers = { 'cache-control': 'no-cache' };
@@ -25,9 +33,10 @@ app.get('/', (req, res) => {
 });
 
 mongoose.connect(
-  'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
+  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
+  // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log('Connected')
+  () => console.log("Connected")
 );
 
 app.listen(PORT);
