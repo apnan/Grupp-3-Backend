@@ -22,6 +22,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required:true,
+  }
 });
 
-module.exports = mongoose.model('users', UserSchema); //changed Users to users
+module.exports = mongoose.model('users', UserSchema); 

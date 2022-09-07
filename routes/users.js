@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
 
 
 
+
 router.get('/:userId', async (req, res) => {
   console.log(req.params.userId)
   try {
@@ -41,6 +42,7 @@ router.post('/', async (req, res) => {
     name: req.body.name,
     password: req.body.password,
     email: req.body.email,
+    url:req.body.url
   });
   try {
     const savedUser = await user.save();

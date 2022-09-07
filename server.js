@@ -18,11 +18,13 @@ app.use(express.json());
 const usersRoute = require("./routes/users");
 const loginRoute = require("./routes/login")
 const signinRoute = require("./routes/signin");
+const imagesRoute = require("./routes/images");
 
 app.use(express.static('public'));
 app.use('/api/users', usersRoute)
 app.use("/api/login", loginRoute);
-app.use("/api/signin",signinRoute)
+app.use("/api/signin", signinRoute)
+app.use("/api/images", imagesRoute);
 
 
 
