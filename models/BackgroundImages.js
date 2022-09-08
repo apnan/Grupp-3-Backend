@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 
-const ImagesSchema = mongoose.Schema({
+const BackgroundImagesSchema = mongoose.Schema({
   name: {
     type: String,
   },
@@ -11,8 +11,8 @@ const ImagesSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required:true,
-  }
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("images", ImagesSchema);
+module.exports = mongoose.model("backgroundimages", BackgroundImagesSchema);

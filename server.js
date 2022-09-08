@@ -16,15 +16,18 @@ app.use(cors());
 app.use(express.json());
 
 const usersRoute = require("./routes/users");
-const loginRoute = require("./routes/login")
-const signinRoute = require("./routes/signin");
+// const loginRoute = require("./routes/login")
+// const signinRoute = require("./routes/signin");
 const imagesRoute = require("./routes/images");
+// const backgroundImages = require("./routes/backgroundImages");
+const  backgroundImagesRoute = require("./routes/backgroundImages") 
 
 app.use(express.static('public'));
 app.use('/api/users', usersRoute)
-app.use("/api/login", loginRoute);
-app.use("/api/signin", signinRoute)
+// app.use("/api/signin", signinRoute)
 app.use("/api/images", imagesRoute);
+// app.use("/api/backgroundImages", backgroundImagesRoute);
+
 
 
 

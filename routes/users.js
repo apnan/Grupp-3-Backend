@@ -11,10 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-
-
 router.get('/:userId', async (req, res) => {
   console.log(req.params.userId)
   try {
@@ -30,19 +26,18 @@ router.get('/:userId', async (req, res) => {
   }
 });
 
-
-
-
-
 //post to create user in db
 
-router.post('/', async (req, res) => {
-  console.log("Connected");
+
+router.post("/", async (req, res) => {
+  console.log("Posted");
   const user = new User({
-    name: req.body.name,
+    userName: req.body.userName,
+    firstName:req.body.firstName,
+    lastName:req.body.lastName,
     password: req.body.password,
     email: req.body.email,
-    url:req.body.url
+    
   });
   try {
     const savedUser = await user.save();
@@ -55,8 +50,27 @@ router.post('/', async (req, res) => {
 
 
 
+/* router.post('/', async (req, res) => {
+  console.log("Connected");
+  const user = new User({
+    firstName: req.body.firstName,
+    lastName:req.body.lastName,
+    userName: req.body.userName,
+    password: req.body.password,
+    email: req.body.email,
+    
 
-
+    
+  });
+  
+  try {
+    const savedUser = await user.save();
+    res.json(savedUser);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+ */
 // Delete post
 router.delete('/:userId', async (req, res) => {
   try {
@@ -77,6 +91,8 @@ router.patch('/:userId', async (req, res) => {
           name: req.body.name,
           password: req.body.password,
           email: req.body.email,
+          
+          
         },
       }
     );
