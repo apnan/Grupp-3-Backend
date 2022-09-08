@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +17,8 @@
     "mongoose": "^6.5.3",
     "path": "^0.12.7",
     "serve-favicon": "^2.5.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
