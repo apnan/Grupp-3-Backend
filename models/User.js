@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
   userName: {
-    type: String
+    type: String,
+    required:true,
   },
   firstName: {
     type: String,
@@ -24,8 +25,16 @@ const UserSchema = mongoose.Schema({
   },
   image: {
     type: String,
-    required:true,
-  }
+    required: false,
+  },
+  backgroundImage: {
+    type: String,
+    required: false,
+  },
+  scoreBoard: {
+    type: Number,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model('users', UserSchema); 
