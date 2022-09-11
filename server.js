@@ -5,45 +5,58 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const dotenv  = require('dotenv')
-//  const  usersRoutes= require('./routes/userRoutes')
+const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
 
 const PORT = process.env.PORT || 3000;
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
-//app.use(bodyParser.json());
 app.use(express.json());
 
-const usersRoute = require("./routes/users");
-// const loginRoute = require("./routes/login")
-// const signinRoute = require("./routes/signin");
-const imagesRoute = require("./routes/images");
-// const backgroundImages = require("./routes/backgroundImages");
-const  backgroundImagesRoute = require("./routes/backgroundImages") 
+//Swagger config
+//For exmamples: https://github.com/Surnet/swagger-jsdoc/tree/master/examples/app
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "User registeration API",
+      description: "User registration and login API Information",
+      contact: {
+        name: "Developer",
+      },
+      servers: ["http://localhost:3000"],
+    }
+  },
+  apis: ["./routes/*.js"]
+};
 
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+
+//Routes
+const usersRoute = require("./routes/users");
+const imagesRoute = require("./routes/images");
+const  backgroundImagesRoute = require("./routes/backgroundImages"); 
+
+
+//Register api with routes
 app.use(express.static('public'));
 app.use('/api/users', usersRoute)
-// app.use("/api/signin", signinRoute)
 app.use("/api/images", imagesRoute);
-// app.use("/api/backgroundImages", backgroundImagesRoute);
 
-
-
-
-app.get('/', (req, res) => {
-  headers = { 'cache-control': 'no-cache' };
-  body = { status: 'available' };
-  res.status(200).json(body);
-});
 
 mongoose.connect(
+  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
 
   // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("Connected")
+  () => console.log("Connected to Mongo DB")
 );
 
 
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server started and listening on port ${PORT}`)
+});
