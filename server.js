@@ -49,7 +49,6 @@ app.use("/api/images", imagesRoute);
 
 
 mongoose.connect(
-  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
 
   // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
