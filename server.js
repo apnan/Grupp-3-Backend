@@ -16,7 +16,6 @@ app.use(express.json());
 
 //Swagger config
 //For exmamples: https://github.com/Surnet/swagger-jsdoc/tree/master/examples/app
-//access swagger api docs:  http://localhost:3000/api-docs
 
 const swaggerOptions = {
   swaggerDefinition: {
@@ -50,6 +49,7 @@ app.use("/api/images", imagesRoute);
 
 
 mongoose.connect(
+  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
 
   // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
