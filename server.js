@@ -14,6 +14,12 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  headers = { 'cache-control': 'no-cache' };
+  body = { status: 'available' };
+  res.status(200).json(body);
+});
+
 //Swagger config
 //For exmamples: https://github.com/Surnet/swagger-jsdoc/tree/master/examples/app
 
@@ -45,7 +51,7 @@ app.use('/api/users', usersRoute);
 app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
+  'mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority',
 
   // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
