@@ -5,8 +5,8 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const swaggerJSDoc = require('swagger-jsdoc')
-const swaggerUi = require('swagger-ui-express')
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,44 +20,38 @@ app.use(express.json());
 const swaggerOptions = {
   swaggerDefinition: {
     info: {
-      title: "User registeration API",
-      description: "User registration and login API Information",
+      title: 'User registeration API',
+      description: 'User registration and login API Information',
       contact: {
-        name: "Developer",
+        name: 'Developer',
       },
-      servers: ["http://localhost:3000"],
-    }
+      servers: ['http://localhost:3000'],
+    },
   },
-  apis: ["./routes/*.js"]
+  apis: ['./routes/*.js'],
 };
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //Routes
-const usersRoute = require("./routes/users");
-const imagesRoute = require("./routes/images");
-const  backgroundImagesRoute = require("./routes/backgroundImages"); 
-
+const usersRoute = require('./routes/users');
+const imagesRoute = require('./routes/images');
+const backgroundImagesRoute = require('./routes/backgroundImages');
 
 //Register api with routes
 app.use(express.static('public'));
-app.use('/api/users', usersRoute)
-app.use("/api/images", imagesRoute);
-
+app.use('/api/users', usersRoute);
+app.use('/api/images', imagesRoute);
 
 mongoose.connect(
   "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
 
   // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("Connected to Mongo DB")
+  () => console.log('Connected to Mongo DB')
 );
 
-
-
 app.listen(PORT, () => {
-  console.log(`Server started and listening on port ${PORT}`)
+  console.log(`Server started and listening on port ${PORT}`);
 });
