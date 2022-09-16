@@ -58,7 +58,8 @@ app.use('/api/users', usersRoute);
 app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  'https:/YOUR_LINK',
+  'YOUR_LINK',
+
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log('Connected to Mongo DB')
 );

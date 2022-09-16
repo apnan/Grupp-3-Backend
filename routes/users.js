@@ -152,7 +152,6 @@ router.post('/signin', async (req, res) => {
 });
 
 // Delete post
-//post to create user in db
 /**
  * @swagger
  * /api/users/{userName}:
@@ -172,7 +171,7 @@ router.post('/signin', async (req, res) => {
  *        '500':
  *            description: Techinal exception
  */
-router.delete('delete/:userId', async (req, res) => {
+router.delete('/:userId', async (req, res) => {
   try {
     const deletedUser = await User.deleteOne({ _id: req.params.userId });
     res.json(deletedUser);
