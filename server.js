@@ -9,6 +9,13 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
 const PORT = process.env.PORT || 3000;
+const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
+
+if (JEST_WORKER_ID === undefined) {
+  app.listen(PORT, () => {
+    console.log(`Server started and listening on port ${PORT}`);
+  });
+}
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
@@ -51,13 +58,13 @@ app.use('/api/users', usersRoute);
 app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  'mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority',
-
-  // 'mongodb+srv://hannapshanich:hanna@cluster0.9hnyd.mongodb.net/Cluster0?retryWrites=true&w=majority',
+  'https:/YOUR_LINK',
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log('Connected to Mongo DB')
 );
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
 });
+ */
+module.exports = app;

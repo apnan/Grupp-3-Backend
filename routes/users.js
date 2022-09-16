@@ -224,6 +224,7 @@ router.patch('/:userId', async (req, res) => {
           lastName: req.body.lastName,
           password: req.body.password,
           email: req.body.email,
+          userName: req.body.userName,
         },
       }
     );
