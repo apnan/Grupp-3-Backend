@@ -58,8 +58,7 @@ app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
-
+'DB url',
   
 
   { useNewUrlParser: true, useUnifiedTopology: true },
