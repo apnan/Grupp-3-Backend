@@ -49,23 +49,22 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //Routes
 const usersRoute = require('./routes/users');
-const imagesRoute = require('./routes/images');
+//const imagesRoute = require('./routes/images');
 const backgroundImagesRoute = require('./routes/backgroundImages');
 
 //Register api with routes
 app.use(express.static('public'));
 app.use('/api/users', usersRoute);
-app.use('/api/images', imagesRoute);
+//app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  'YOUR_LINK',
+  "mongodb+srv://Bhavani:grboH9SCXmqRmmVW@cluster0.ry3rsvw.mongodb.net/?retryWrites=true&w=majority",
+
+  
 
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log('Connected to Mongo DB')
+  () => console.log("Connected to Mongo DB")
 );
 
-/* app.listen(PORT, () => {
-  console.log(`Server started and listening on port ${PORT}`);
-});
- */
+
 module.exports = app;

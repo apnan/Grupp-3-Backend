@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
 
 /**
  * @swagger
- * /api/users:
+ * /api/users/signin:
  *  post:
  *    description: Creates a new user
  *    produces:
