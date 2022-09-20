@@ -9,11 +9,9 @@
     "integrationtest": "jest  --group=integration",
     "start": "nodemon server.js"
   },
-
   "jest": {
     "runner": "groups"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
