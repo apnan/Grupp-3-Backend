@@ -85,7 +85,6 @@ router.post('/login', userController.login_a_user);
  *        '500':
  *            description: Techinal problem
  */
-
 router.post('/signin', userController.sign_a_user);
 
 /**

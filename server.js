@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 3000;
 const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
 
 if (JEST_WORKER_ID === undefined) {
-    app.listen(PORT, () => {
-        console.log(`Server started and listening on port ${PORT}`);
-    });
+  app.listen(PORT, () => {
+    console.log(`Server started and listening on port ${PORT}`);
+  });
 }
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -22,26 +22,26 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    headers = { 'cache-control': 'no-cache' };
-    body = { status: 'available' };
-    res.status(200).json(body);
+  headers = { 'cache-control': 'no-cache' };
+  body = { status: 'available' };
+  res.status(200).json(body);
 });
 
 //Swagger config
 //For exmamples: https://github.com/Surnet/swagger-jsdoc/tree/master/examples/app
 
 const swaggerOptions = {
-    swaggerDefinition: {
-        info: {
-            title: 'User registeration API',
-            description: 'User registration and login API Information',
-            contact: {
-                name: 'Developer',
-            },
-            servers: ['http://localhost:3000'],
-        },
+  swaggerDefinition: {
+    info: {
+      title: 'User registeration API',
+      description: 'User registration and login API Information',
+      contact: {
+        name: 'Developer',
+      },
+      servers: ['http://localhost:3000'],
     },
-    apis: ['./routes/*.js'],
+  },
+  apis: ['./routes/*.js'],
 };
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
@@ -58,18 +58,16 @@ app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-    'mongodb://mongo:27017/test', { useNewUrlParser: true, useUnifiedTopology: true },
-    () => {
+  'mongodb://mongo:27017/test',
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    /* dbNative = mongoose.connection.db; */
+    /*  console.log(dbNative); */
+    console.log('Connected to Mongo DB');
+  }
+);
 
-        dbNative = mongoose.connection.db;
-        console.log(dbNative);
-        console.log('Connected to Mongo DB')
-
-    });
-
-
-dbNative = mongoose.connection.db;
-console.log(dbNative);
+/* console.log(dbNative); */
 /* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
 });
