@@ -11,7 +11,7 @@ afterAll(async () => {
 
 describe('Given user service is up', () => {
   describe('When listing all users ', () => {
-    it.skip('Then response should be as expected', async () => {
+    it('Then response should be as expected', async () => {
       await supertest(app)
         .get('/api/users/')
         .expect(200)
@@ -23,7 +23,7 @@ describe('Given user service is up', () => {
 describe('Given user service is up', () => {
   describe('When finding one user ', () => {
     describe('not registered ', () => {
-      it.skip('Then response should be 404', async () => {
+      it('Then response should be 404', async () => {
         await supertest(app)
           .get('/api/users/123') /* fel ID  */
           .expect(200)
@@ -32,7 +32,7 @@ describe('Given user service is up', () => {
     });
 
     describe('not registered ', () => {
-      it.skip('Then response should be 200', async () => {
+      it('Then response should be 200', async () => {
         await supertest(app)
           .get('/api/users/auserthatcantbefound')
           .expect(200)
@@ -44,7 +44,7 @@ describe('Given user service is up', () => {
 
 describe('Given user service is up', () => {
   describe('When creating one user ', () => {
-    it.skip('Then user should get a id', async () => {
+    it('Then user should get a id', async () => {
       await supertest(app)
         .post('/api/users/signin')
         .send({
@@ -70,7 +70,7 @@ describe('Given user service is up', () => {
   const TESTABLE_PASSWORD = 'password';
 
   describe('When updating one user ', () => {
-    it.skip('Then user should change', async () => {
+    it('Then user should change', async () => {
       await supertest(app)
         .patch('/api/users/63297a2aebae8e84cb36957c')
         .send({
