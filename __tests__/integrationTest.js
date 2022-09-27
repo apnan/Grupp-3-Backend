@@ -1,7 +1,19 @@
 /**
  * @group integration
  */
-const request = require("supertest");
+
+const calculator = require('../calculator.js');
+
+test('Calculator should add!', () => {
+  expect(calculator.add('1')).toBe(1);
+});
+
+test('Calculator should add!', () => {
+  expect(calculator.add('8,8')).toBe(16);
+});
+/* rebuild */
+
+/* const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
 const { response } = require("../app");
@@ -28,9 +40,9 @@ beforeAll((done) => {
       useUnifiedTopology: true,
     })
     .catch((err) => console.log(err));
-});
+}); */
 
-afterAll(async() => {
+/* afterAll(async() => {
    await new Promise((resolve) => setTimeout(() => resolve(), 500)); 
   await mongoose.disconnect();
   await server.close();
@@ -50,15 +62,4 @@ describe("/POST/signin", function () {
    
   });
 });
-
- 
-
-
-
-
-
-
-
-
-
-  
+ */
