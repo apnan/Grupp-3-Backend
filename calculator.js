@@ -5,4 +5,3 @@ function add(numbers) {
     .reduce((a, b) => a + b);
 }
 exports.add = add;
-/* comment */
