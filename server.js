@@ -58,7 +58,7 @@ app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  'mongodb://mongo:27017/test',
+  'mongodb+srv://hannapshanich:hannaAnna21@cluster0.9hnyd.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     /* dbNative = mongoose.connection.db; */
