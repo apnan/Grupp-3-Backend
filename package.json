@@ -10,7 +10,7 @@
     "test": "jest  --group=-component --group=-integration",
     "componenttest": "jest  --group=component",
     "integrationtest": "jest  --group=integration",
-    "start": "node server.js",
+    "start": " node server.js",
     "prepare": "husky install"
   },
   "jest": {
