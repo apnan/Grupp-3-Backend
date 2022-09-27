@@ -10,12 +10,15 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
+const uri = process.env.MONGO;
+console.log('uri ' + uri);
+console.log(PORT);
 
-/* if (JEST_WORKER_ID === undefined) {
+if (JEST_WORKER_ID === undefined) {
   app.listen(PORT, () => {
     console.log(`Server started and listening on port ${PORT}`);
   });
-} */
+}
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
@@ -57,18 +60,12 @@ app.use(express.static('public'));
 app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
-const uri = process.env.MONGO;
-
 mongoose.connect(uri, () => {
-  /* dbNative = mongoose.connection.db; */
-  /*  console.log(dbNative); */
   console.log('Connected to Mongo DB');
 });
 
-/* comment */
-/* console.log(dbNative); */
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
 });
-
+ */
 module.exports = app;
