@@ -10,7 +10,8 @@
     "test": "jest  --group=-component --group=-integration",
     "componenttest": "jest  --group=component",
     "integrationtest": "jest  --group=integration",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "prepare": "husky install"
   },
   "jest": {
     "runner": "groups"
@@ -40,6 +41,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
     "jest": "^28.1.3",
     "jest-runner-groups": "^2.2.0",
     "nodemon": "^2.0.19",
