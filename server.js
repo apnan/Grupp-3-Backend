@@ -60,9 +60,9 @@ app.use(express.static('public'));
 app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
-mongoose.connect(uri, () => {
+/* mongoose.connect(uri, () => {
   console.log('Connected to Mongo DB');
-});
+}); */
 
 /* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
