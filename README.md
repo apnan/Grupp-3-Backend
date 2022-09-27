@@ -1,5 +1,7 @@
 our 5th git action
+
 # Grupp-3-Backend
+
 santas action
 our 3rd try on actions
 
@@ -8,9 +10,11 @@ Create backend project
 ```bash
  cd ~
 ```
+
 ```bash
 mkdir Grupp-3-Backend
 ```
+
 ```bash
  cd Grupp-3-Backend
 ```
@@ -22,58 +26,76 @@ mkdir Grupp-3-Backend
 ```bash
   mv app.js server.js
 ```
+
 ```bash
  touch .env
 ```
+
 ```bash
  touch app.json
 ```
+
 ```bash
  touch Procfile
 ```
+
 ```bash
 touch Dockerfile
 ```
+
 ```bash
 touch request.rest
 ```
+
 ```bash
 mkdir routes
 ```
+
 ```bash
-touch routes/Login.js 
+touch routes/Login.js
 ```
+
 ```bash
 mkdir __tests__
 ```
+
 ```bash
 touch ./__tests__/component.js
 ```
+
 ```bash
 touch ./__tests__/unit.js
 ```
+
 ```bash
 npm install express --save
 ```
+
 ```bash
 npm install dotenv --save
 ```
+
 ```bash
 
 npm install cors --save
 ```
+
 ```bash
 npm install jsonwebtoken --save
 ```
+
 ```bash
 npm install nodemon --save-dev
 ```
+
 ```bash
 npm install jest --save-dev
 ```
+
 ```bash
 code .
 ```
+
 ## Grupp-3-Backend-swagger-js
 
 Petstore
@@ -89,13 +111,14 @@ Tutorial Youtube
 
 [Tutorial](https://www.youtube.com/watch?v=apouPYPh_as&t=731s)
 
-
 ```bash
  cd ~
 ```
+
 ```bash
 cd ws
 ```
+
 ```bash
  cd [backend-project]
 ```
@@ -107,10 +130,28 @@ cd ws
 ```bash
  npm install  swagger-jsdoc
 ```
+
 ```bash
 npm install swagger-ui-express
 ```
 
-Actions test
+Install husky:
 
+```bash
+npm pkg set scripts.prepare="husky install"
+npm run prepare
 
+npx husky add .husky/pre-commit "npm test"
+git add .husky/pre-commit
+
+```
+
+In case of Error on Heroku
+"Your account has reached its concurrent builds limit"
+
+```bash
+heroku plugins:install heroku-builds
+heroku builds:cancel
+heroku restart
+
+```
