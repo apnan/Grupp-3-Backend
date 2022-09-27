@@ -10,7 +10,8 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
-const uri = process.env.MONGO;
+/* const uri = process.env.MONGO; */
+const MONGODB_URI = process.env.MONGODB_URI || 3000;
 console.log('uri ' + uri);
 console.log(PORT);
 
@@ -60,9 +61,9 @@ app.use(express.static('public'));
 app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
-/* mongoose.connect(uri, () => {
+mongoose.connect(MONGODB_URI, () => {
   console.log('Connected to Mongo DB');
-}); */
+});
 
 /* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
