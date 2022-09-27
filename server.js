@@ -17,7 +17,7 @@ if (JEST_WORKER_ID === undefined) {
   });
 }
 /* djfkdfjk */
-/* app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); */
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
 app.use(express.json());
 
