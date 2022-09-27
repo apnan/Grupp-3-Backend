@@ -58,12 +58,12 @@ app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
 mongoose.connect(
-  'YOU LINK',
+"DB url",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     /* dbNative = mongoose.connection.db; */
     /*  console.log(dbNative); */
-    console.log('Connected to Mongo DB');
+    console.log("Connected to Mongo DB");
   }
 );
 

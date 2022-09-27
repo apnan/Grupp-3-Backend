@@ -13,9 +13,11 @@
   "jest": {
     "runner": "groups"
   },
-  "keywords": [ "discord",
-  "github",
-  "action"],
+  "keywords": [
+    "discord",
+    "github",
+    "action"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
