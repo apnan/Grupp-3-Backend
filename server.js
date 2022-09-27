@@ -3,10 +3,10 @@ var favicon = require('serve-favicon');
 var path = require('path');
 const app = express();
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
@@ -57,15 +57,13 @@ app.use(express.static('public'));
 app.use('/api/users', usersRoute);
 //app.use('/api/images', imagesRoute);
 
-mongoose.connect(
-"DB url",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    /* dbNative = mongoose.connection.db; */
-    /*  console.log(dbNative); */
-    console.log("Connected to Mongo DB");
-  }
-);
+const uri = process.env.MONGO;
+
+mongoose.connect(uri, () => {
+  /* dbNative = mongoose.connection.db; */
+  /*  console.log(dbNative); */
+  console.log('Connected to Mongo DB');
+});
 
 /* comment */
 /* console.log(dbNative); */
