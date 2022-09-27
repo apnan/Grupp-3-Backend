@@ -67,6 +67,7 @@ mongoose.connect(
   }
 );
 
+/* comment */
 /* console.log(dbNative); */
 /* app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT}`);
