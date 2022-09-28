@@ -2,7 +2,7 @@
  * @group integration
  */
 
-const calculator = require('../calculator.js');
+/* const calculator = require('../calculator.js');
 
 test('Calculator should add!', () => {
   expect(calculator.add('1')).toBe(1);
@@ -10,22 +10,26 @@ test('Calculator should add!', () => {
 
 test('Calculator should add!', () => {
   expect(calculator.add('8,8')).toBe(16);
-});
+}); */
 /* rebuild */
 
-/* const request = require("supertest");
+ const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
 const { response } = require("../app");
+require("dotenv").config();
+
+const { v4: uuidv4 } = require("uuid");
+
 const PORT = process.env.HOST || 3001;
 
 let server = app;
 let data = {
-  userName: "dummy19",
-  firstName: "dummy1",
-  lastName: "dummy1",
-  email: "dummy1@mail.com",
-  password: "3333333",
+  firstName: uuidv4(),
+  email: uuidv4(),
+  lastName: uuidv4(),
+  password: uuidv4(),
+  userName: uuidv4(),
 };
 
 
@@ -35,14 +39,14 @@ beforeAll((done) => {
     done();
   });
   mongoose
-    .connect("mongodb://localhost:27017/test", {
+    .connect(process.env.MONGO, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
     .catch((err) => console.log(err));
-}); */
+}); 
 
-/* afterAll(async() => {
+ afterAll(async() => {
    await new Promise((resolve) => setTimeout(() => resolve(), 500)); 
   await mongoose.disconnect();
   await server.close();
@@ -62,4 +66,4 @@ describe("/POST/signin", function () {
    
   });
 });
- */
+ 
