@@ -2,18 +2,7 @@
  * @group integration
  */
 
-/* const calculator = require('../calculator.js');
-
-test('Calculator should add!', () => {
-  expect(calculator.add('1')).toBe(1);
-});
-
-test('Calculator should add!', () => {
-  expect(calculator.add('8,8')).toBe(16);
-}); */
-/* rebuild */
-
- const request = require("supertest");
+const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
 const { response } = require("../app");
@@ -21,7 +10,7 @@ require("dotenv").config();
 
 const { v4: uuidv4 } = require("uuid");
 
-const PORT = process.env.HOST || 3001;
+const PORT = process.env.HOST || 3000;
 
 let server = app;
 let data = {
@@ -31,8 +20,6 @@ let data = {
   password: uuidv4(),
   userName: uuidv4(),
 };
-
-
 beforeAll((done) => {
   server = app.listen(PORT, (err) => {
     if (err) return done(err);
@@ -44,11 +31,11 @@ beforeAll((done) => {
       useUnifiedTopology: true,
     })
     .catch((err) => console.log(err));
-}); 
+});
 
- afterAll(async() => {
-   await new Promise((resolve) => setTimeout(() => resolve(), 500)); 
+afterAll(async () => {
   await mongoose.disconnect();
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   await server.close();
 });
 
@@ -63,7 +50,5 @@ describe("/POST/signin", function () {
       .then(function (err, response) {
         if (err) return err;
       });
-   
   });
 });
- 

@@ -7,7 +7,7 @@
     "node": "16.14.0"
   },
   "scripts": {
-    "test": "jest  --group=-component --group=-integration",
+    "test": "jest --group=-component --group=-integration ",
     "componenttest": "jest  --group=component",
     "integrationtest": "jest  --group=integration",
     "start": " node server.js",
