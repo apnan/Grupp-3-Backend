@@ -6,8 +6,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest 
+    env:
+      MONGO: mongodb://localhost:27017
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
