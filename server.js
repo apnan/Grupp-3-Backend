@@ -10,11 +10,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const JEST_WORKER_ID = process.env.JEST_WORKER_ID;
-/* const uri = process.env.MONGO; */
 
-/* console.log('uri ' + uri);
-console.log(PORT);
- */
 if (JEST_WORKER_ID === undefined) {
   app.listen(PORT, () => {
     console.log(`Server started and listening on port ${PORT}`);
