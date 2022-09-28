@@ -13,7 +13,8 @@ jobs:
   integrationtest:
 
     runs-on: ubuntu-latest
-
+    env:
+      MONGO: mongodb:localhost:27019
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
