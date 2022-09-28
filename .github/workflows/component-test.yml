@@ -7,9 +7,7 @@ on:
 jobs:
 
     runs-on: ubuntu-latest
-
-
-  test:
+test:
     runs-on: ubuntu-latest 
     env:
       MONGO: mongodb://localhost:27017
