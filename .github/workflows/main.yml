@@ -34,6 +34,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm run integrationtest
+      - run: npm run integrationtest
 
   notify:
     needs: tests
@@ -74,4 +75,4 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.
+        uses: Ilshidur/action-discord@0.3.2
