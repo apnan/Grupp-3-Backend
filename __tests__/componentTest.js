@@ -8,7 +8,7 @@ test('Calculator should add!', () => {
 });
 
 test('Calculator should add!', () => {
-  expect(calculator.add('3,3')).toBe(8);
+  expect(calculator.add('3,3')).toBe(6);
 });
 
 /* 
