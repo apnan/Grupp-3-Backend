@@ -38,23 +38,29 @@ jobs:
 
       - name: Step To run on failure
         if: ${{ failure() }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.2
-        with:
-          args: 'A new commit has been pushed to Grupp-3-Backend repository, but at least one TEST HAS FAILED'
-
-  notify:
-    needs: tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Discord tests notification
+        - name: Discord successful tests notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
         with:
           args: 'A new commit has been pushed to Grupp-3-Backend repository. All tests are passed'
-      - name: Discord notification
+        - name: Discord successful test link
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
+      
+
+  notify:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord successful tests notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: 'A new commit has been pushed to Grupp-3-Backend repository. All tests are passed'
+      - name: Discord successful test link
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
