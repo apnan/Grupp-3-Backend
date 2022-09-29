@@ -1,8 +1,7 @@
 name: Componenttest
 on:
   push:
-    branches: [ "main" ]
-  
+    branches: ['main']
 
 jobs:
   tests:
@@ -28,9 +27,7 @@ jobs:
         mongodb-version: ${{ matrix.mongodb-version }}
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm run componenttest
       - run: npm run  integrationtest
-
 
   notify:
     needs: tests
@@ -44,7 +41,6 @@ jobs:
         with:
           args: 'A new commit has been pushed to Grupp-3-Backend repository. Tests are passed'
 
-
   deploy:
     needs: notify
     runs-on: ubuntu-latest
@@ -56,8 +52,8 @@ jobs:
           branch: 'main'
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'grupp-3-backend'
-          heroku_email: ${{secrets.HEROKU_EMAIL}} 
-    
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+
   deployment-notify:
     needs: deploy
     runs-on: ubuntu-latest
