@@ -1,4 +1,7 @@
-/* const calculator = require('../calculator.js');
+/**
+ * @group component
+ */
+const calculator = require('../calculator.js');
 
 test('Calculator should add!', () => {
   expect(calculator.add('1')).toBe(1);
@@ -7,12 +10,8 @@ test('Calculator should add!', () => {
 test('Calculator should add!', () => {
   expect(calculator.add('3,3')).toBe(6);
 });
- */
 
-/**
- * @group component
- */
-// const app = require('../server.js');
+/* 
 const app = require("../app");
 const supertest = require('supertest');
 const mongoose = require("mongoose");
@@ -41,30 +40,6 @@ describe('Given user service is up', () => {
   });
 });
 
-/* describe('Given user service is up', () => {
-  describe('When finding one user ', () => {
-    describe('not registered ', () => {
-      it('Then response should be 404', async () => {
-        await supertest(app)
-          .get('/api/users/123') 
-          .expect(200)
-          .then(async (response) => {});
-      });
-    });
-
-    describe('not registered ', () => {
-      it('Then response should be 200', async () => {
-        await supertest(app)
-          .get('/api/users/auserthatcantbefound')
-          .expect(200)
-          .then(async (response) => {});
-      });
-    });
-  });
-});
- */
-
-
 describe('Given user service is up', () => {
   describe('When creating one user ', () => {
     it('Then user should get a id', async () => {
@@ -82,23 +57,6 @@ describe('Given user service is up', () => {
           if (err) done(err);
         done();
         }); 
-    });
-  });
-});
-
-/* describe('Given user service is up', () => {
-  const TESTABLE_USERNAME = 'username';
-  const TESTABLE_EMAIL = 'email';
-  const TESTABLE_FIRST_NAME = 'name';
-  const TESTABLE_LAST_NAME = 'lastname';
-  const TESTABLE_PASSWORD = 'password'; */
-
-/* describe('Given user service is up', () => {
-  describe('When deleting one user ', () => {
-    it.skip('Then user should be deleted', async () => {
-      await supertest(app)
-        .delete('/api/users/63297a2aebae8e84cb36957c')
-        .expect(200);
     });
   });
 });
