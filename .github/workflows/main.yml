@@ -1,4 +1,4 @@
-name: Componenttest
+name: Main
 on:
   push:
     branches: ['main']
