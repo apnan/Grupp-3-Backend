@@ -12,6 +12,7 @@ jobs:
   integrationtest:
 
     runs-on: ubuntu-latest
+
     env:
       MONGO: mongodb://localhost:27017
     strategy:
