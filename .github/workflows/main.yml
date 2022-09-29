@@ -52,6 +52,15 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
 
+      - name: Failure
+        if: failure()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: 'Tests has failed'
+
   deploy:
     needs: notify
     runs-on: ubuntu-latest
