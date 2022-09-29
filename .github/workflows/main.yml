@@ -35,13 +35,15 @@ jobs:
       - run: npm run build --if-present
       - run: npm run integrationtest
       - run: npm run componenttest
-      if: failure()
+
+      - name: Step To run on failure
+        if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
         uses: Ilshidur/action-discord@0.3.2
         with:
-          args: 'Tests has failed'
+          args: 'A new commit has been pushed to Grupp-3-Backend repository. All tests are passed'
 
   notify:
     needs: tests
