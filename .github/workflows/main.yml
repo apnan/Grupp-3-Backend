@@ -46,7 +46,11 @@ jobs:
 
         uses: Ilshidur/action-discord@0.3.2
         with:
-          args: 'A new commit has been pushed to Grupp-3-Backend repository. Tests are passed'
+          args: 'A new commit has been pushed to Grupp-3-Backend repository. All tests are passed'
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
 
   deploy:
     needs: notify
@@ -71,8 +75,4 @@ jobs:
 
         uses: Ilshidur/action-discord@0.3.2
         with:
-          args: 'App has been successfully deployed'
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.2
+          args: 'App has been successfully deployed to Heroku'
