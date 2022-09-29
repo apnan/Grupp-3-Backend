@@ -5,7 +5,14 @@ on:
     branches: ['main']
 
 jobs:
+
     runs-on: ubuntu-latest
+
+
+  test:
+    runs-on: ubuntu-latest 
+    env:
+      MONGO: mongodb://localhost:27017
 
     strategy:
       matrix:
