@@ -22,7 +22,7 @@ test('dummyComponentTest should add!', () => {
 });
 
 test('dummyComponentTest should add!', () => {
-  expect(dummyComponentTest.add('3,3')).toBe(6);
+  expect(dummyComponentTest.add('3,3')).toBe(8);
 });
 
 /* 
