@@ -12,18 +12,27 @@ test('Calculator should add!', () => {
 /**
  * @group component
  */
-const app = require('../server.js');
+// const app = require('../server.js');
+const app = require("../app");
 const supertest = require('supertest');
+const mongoose = require("mongoose");
 const { v4: uuidv4 } = require('uuid');
+require("dotenv").config();
 
 afterAll(async () => {
   await new Promise((resolve) => setTimeout(() => resolve(), 500));
   // avoid jest open handle error
 });
 
+mongoose
+    .connect(process.env.MONGO, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .catch((err) => console.log(err));
 describe('Given user service is up', () => {
   describe('When listing all users ', () => {
-    it.skip('Then response should be as expected', async () => {
+    it('Then response should be as expected', async () => {
       await supertest(app)
         .get('/api/users/')
         .expect(200)
@@ -54,9 +63,11 @@ describe('Given user service is up', () => {
   });
 });
  */
+
+
 describe('Given user service is up', () => {
   describe('When creating one user ', () => {
-    it.skip('Then user should get a id', async () => {
+    it('Then user should get a id', async () => {
       await supertest(app)
         .post('/api/users/signin')
         .send({
@@ -67,10 +78,10 @@ describe('Given user service is up', () => {
           userName: uuidv4(),
         })
         .expect(201);
-      /* .expect(function (err, res) {
-          if (err) return done(err);
-          done();
-        }); */
+      expect(function (err, res) {
+          if (err) done(err);
+        done();
+        }); 
     });
   });
 });
