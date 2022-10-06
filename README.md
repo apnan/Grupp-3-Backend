@@ -39,9 +39,7 @@ mkdir Grupp-3-Backend
  touch Procfile
 ```
 
-```bash
-touch Dockerfile
-```
+
 
 ```bash
 touch request.rest
@@ -63,9 +61,7 @@ mkdir __tests__
 touch ./__tests__/component.js
 ```
 
-```bash
-touch ./__tests__/unit.js
-```
+
 
 ```bash
 npm install express --save
@@ -87,6 +83,7 @@ npm install jsonwebtoken --save
 ```bash
 npm install nodemon --save-dev
 ```
+Install Jest:
 
 ```bash
 npm install jest --save-dev
@@ -96,36 +93,8 @@ npm install jest --save-dev
 code .
 ```
 
-## Grupp-3-Backend-swagger-js
+Install swagger:
 
-Petstore
-
-[Petstore](https://petstore.swagger.io/)
-
-Node packages
-
-[swagger doc for javascript](https://www.npmjs.com/package/swagger-jsdoc)
-[swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
-
-Tutorial Youtube
-
-[Tutorial](https://www.youtube.com/watch?v=apouPYPh_as&t=731s)
-
-```bash
- cd ~
-```
-
-```bash
-cd ws
-```
-
-```bash
- cd [backend-project]
-```
-
-```bash
-  touch swagger.json
-```
 
 ```bash
  npm install  swagger-jsdoc
@@ -155,3 +124,12 @@ heroku builds:cancel
 heroku restart
 
 ```
+Mongoose
+```bash
+npm install mongoose
+
+```
+
+
+
+
