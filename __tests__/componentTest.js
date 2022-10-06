@@ -24,7 +24,7 @@ test('dummyComponentTest should add!', () => {
 test('dummyComponentTest should add!', () => {
   expect(dummyComponentTest.add('3,3')).toBe(6);
 });
-
+/* failed tests: */
 /* 
 const app = require("../app");
 const supertest = require('supertest');
