@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/usersController');
-// test2
+// test
 //Get all users
 /**
  * @swagger
